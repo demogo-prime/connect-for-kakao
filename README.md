@@ -1,8 +1,11 @@
 # connect-for-kakao
+
+![Connect](demo.png)
 Amazon Connect wifh KakaoTalk Demo 는 Amazon Connect 서비스를 이용해서 옴니채널 클라우드 콜센터를 구성하고, KakaoTalk 메신저와 연동할 수 있는 샘플 코드를 제공합니다.
 포함된 워크샵 문서를 통해서 데모를 직접 만들어보실 수 있습니다.
 
 ## Demo 구성 안내
+![ConnectDemo](demo_arch.png)
 - doc : 본 데모 구성에 대한 워크샵 문서가 포함되어 있습니다.
 - Lambda : 데모에 필요한 Lambda 함수의 원본 소스 코드가 첨부되어 있습니다. 자세한 구성 사항은 워크샵 문서를 참고해보실 수 있습니다.
 - DemoGoPrime_Callflow.json : 본 Amazon Connect with KakaoTalk 데모의 Amazon Connect Contact Flow 정의 파일입니다. Amazon Connect 에서 Import flow 하여 사용하실 수 있습니다.
