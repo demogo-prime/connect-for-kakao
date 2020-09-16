@@ -27,6 +27,6 @@ Amazon Connect wifh KakaoTalk Demo 는 Amazon Connect 서비스를 이용해서 
 
 9. 해당 콜센터 전화번호로 전화하여 데모를 시작합니다.
 
-Enjoy & Have Fun!
+## Enjoy & Have Fun!
 
-보다 자세한 사항은 doc/Amazon Connect with Kakaotalk.docx 문서를 참고해주세요.
+보다 자세한 사항은 **doc/Amazon Connect with Kakaotalk.docx** 문서를 참고해주세요.
