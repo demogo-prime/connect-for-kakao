@@ -1,0 +1,651 @@
+{
+	"modules": [{
+		"id": "8bbb23ad-296a-4c87-a6b6-c2c0f52b3c6d",
+		"type": "SetRecordingBehavior",
+		"branches": [{
+			"condition": "Success",
+			"transition": "80895844-7b9f-4fa6-9aa6-b41436fc1c6e"
+		}],
+		"parameters": [{
+			"name": "RecordingBehaviorOption",
+			"value": "Enable"
+		}, {
+			"name": "RecordingParticipantOption",
+			"value": "Both"
+		}],
+		"metadata": {
+			"position": {
+				"x": 181,
+				"y": 15
+			}
+		}
+	}, {
+		"id": "80895844-7b9f-4fa6-9aa6-b41436fc1c6e",
+		"type": "SetVoice",
+		"branches": [{
+			"condition": "Success",
+			"transition": "79ac0b3d-a45e-4e5f-abe2-496ea23b6979"
+		}],
+		"parameters": [{
+			"name": "GlobalVoice",
+			"value": "Seoyeon"
+		}],
+		"metadata": {
+			"position": {
+				"x": 143,
+				"y": 200
+			}
+		}
+	}, {
+		"id": "79ac0b3d-a45e-4e5f-abe2-496ea23b6979",
+		"type": "PlayPrompt",
+		"branches": [{
+			"condition": "Success",
+			"transition": "f2a52f1c-b8bc-4697-b1be-3a81dc4a5606"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "안녕하세요? Amazon Connect 콜센터입니다. 만나서 반갑습니다.",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}],
+		"metadata": {
+			"position": {
+				"x": 144,
+				"y": 369
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "f2a52f1c-b8bc-4697-b1be-3a81dc4a5606",
+		"type": "SetLoggingBehavior",
+		"branches": [{
+			"condition": "Success",
+			"transition": "008a9aa5-3f1b-4d94-ac27-3fd77670336e"
+		}],
+		"parameters": [{
+			"name": "LoggingBehavior",
+			"value": "Enable"
+		}],
+		"metadata": {
+			"position": {
+				"x": 152,
+				"y": 532
+			}
+		}
+	}, {
+		"id": "008a9aa5-3f1b-4d94-ac27-3fd77670336e",
+		"type": "SetQueue",
+		"branches": [{
+			"condition": "Success",
+			"transition": "8e9657b2-9f37-4928-9e33-fdf254121d42"
+		}, {
+			"condition": "Error",
+			"transition": "1189b9ba-c5df-4fa1-8edc-b1b39a0c1b2e"
+		}],
+		"parameters": [{
+			"name": "Queue",
+			"value": "arn:aws:connect:ap-northeast-1:210846229201:instance/86c2d2f1-ee36-41c9-bb6a-04f613b55398/queue/5f983404-a6ad-493d-a0b6-cf4d0c67c6d0",
+			"namespace": null,
+			"resourceName": "BasicQueue"
+		}],
+		"metadata": {
+			"position": {
+				"x": 152,
+				"y": 705
+			},
+			"useDynamic": false,
+			"queue": {
+				"id": "arn:aws:connect:ap-northeast-1:210846229201:instance/86c2d2f1-ee36-41c9-bb6a-04f613b55398/queue/5f983404-a6ad-493d-a0b6-cf4d0c67c6d0",
+				"text": "BasicQueue"
+			}
+		}
+	}, {
+		"id": "1e12a07e-766a-40dd-af4c-11280d841194",
+		"type": "SetAttributes",
+		"branches": [{
+			"condition": "Success",
+			"transition": "45517d93-1b52-477d-8263-d581444c4290"
+		}, {
+			"condition": "Error",
+			"transition": "e223fa1b-09f0-4470-8b1d-f5707fe2b28a"
+		}],
+		"parameters": [{
+			"name": "Attribute",
+			"value": "phoneNumber",
+			"key": "phoneNumber",
+			"namespace": "External"
+		}, {
+			"name": "Attribute",
+			"value": "voiceCount",
+			"key": "voiceCount",
+			"namespace": "External"
+		}, {
+			"name": "Attribute",
+			"value": "chatCount",
+			"key": "chatCount",
+			"namespace": "External"
+		}, {
+			"name": "Attribute",
+			"value": "lastDate",
+			"key": "lastDate",
+			"namespace": "External"
+		}],
+		"metadata": {
+			"position": {
+				"x": 1249,
+				"y": 181
+			}
+		}
+	}, {
+		"id": "45517d93-1b52-477d-8263-d581444c4290",
+		"type": "PlayPrompt",
+		"branches": [{
+			"condition": "Success",
+			"transition": "e223fa1b-09f0-4470-8b1d-f5707fe2b28a"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "안녕하세요 고객님. 고객님의 전화번호는 $.Attributes.phoneNumber 이고, 음성으로 $.Attributes.voiceCount 번, 채팅으로 $.Attributes.chatCount 번 이용하셨습니다. 이용해주셔서 감사합니다.",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}],
+		"metadata": {
+			"position": {
+				"x": 1567,
+				"y": 181
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "7cce0362-442d-4db2-afad-7c385b7eecc3",
+		"type": "PlayPrompt",
+		"branches": [{
+			"condition": "Success",
+			"transition": "36f3aeac-319d-4508-b3ed-4815fe814bda"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "DemoGoConnect Lambda error",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}],
+		"metadata": {
+			"position": {
+				"x": 448,
+				"y": 439
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "1189b9ba-c5df-4fa1-8edc-b1b39a0c1b2e",
+		"type": "PlayPrompt",
+		"branches": [{
+			"condition": "Success",
+			"transition": "36f3aeac-319d-4508-b3ed-4815fe814bda"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "Basic Queue Error",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}],
+		"metadata": {
+			"position": {
+				"x": 442,
+				"y": 734
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "fe1076d6-245b-40b2-b489-ee9ad6c75188",
+		"type": "PlayPrompt",
+		"branches": [{
+			"condition": "Success",
+			"transition": "c393bc76-d196-455a-bfc0-17b155a361ce"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "DemoGoInteract Lambda Fails",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}],
+		"metadata": {
+			"position": {
+				"x": 1274,
+				"y": 401
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "e223fa1b-09f0-4470-8b1d-f5707fe2b28a",
+		"type": "Disconnect",
+		"branches": [],
+		"parameters": [],
+		"metadata": {
+			"position": {
+				"x": 1818,
+				"y": 310
+			}
+		}
+	}, {
+		"id": "5f4d3b1b-b5ee-4955-bafb-a3404c36226c",
+		"type": "Transfer",
+		"branches": [{
+			"condition": "AtCapacity",
+			"transition": "e223fa1b-09f0-4470-8b1d-f5707fe2b28a"
+		}, {
+			"condition": "Error",
+			"transition": "c393bc76-d196-455a-bfc0-17b155a361ce"
+		}],
+		"parameters": [],
+		"metadata": {
+			"position": {
+				"x": 1189,
+				"y": 646
+			},
+			"useDynamic": false,
+			"queue": null
+		},
+		"target": "Queue"
+	}, {
+		"id": "160baf9d-edd2-4502-a1a9-c8ddb1669148",
+		"type": "PlayPrompt",
+		"branches": [{
+			"condition": "Success",
+			"transition": "e223fa1b-09f0-4470-8b1d-f5707fe2b28a"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "완료되었습니다. 이용해주셔서 감사합니다.",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}],
+		"metadata": {
+			"position": {
+				"x": 1565,
+				"y": 457
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "c393bc76-d196-455a-bfc0-17b155a361ce",
+		"type": "PlayPrompt",
+		"branches": [{
+			"condition": "Success",
+			"transition": "e223fa1b-09f0-4470-8b1d-f5707fe2b28a"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "Error occurs",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}],
+		"metadata": {
+			"position": {
+				"x": 1723,
+				"y": 712
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "efe6064d-5427-4d40-a517-b8d4ff2004d9",
+		"type": "InvokeExternalResource",
+		"branches": [{
+			"condition": "Success",
+			"transition": "1e12a07e-766a-40dd-af4c-11280d841194"
+		}, {
+			"condition": "Error",
+			"transition": "fe1076d6-245b-40b2-b489-ee9ad6c75188"
+		}],
+		"parameters": [{
+			"name": "FunctionArn",
+			"value": "arn:aws:lambda:ap-northeast-1:210846229201:function:DemoGoInteractLambda",
+			"namespace": null
+		}, {
+			"name": "TimeLimit",
+			"value": "3"
+		}],
+		"metadata": {
+			"position": {
+				"x": 994,
+				"y": 232
+			},
+			"dynamicMetadata": {},
+			"useDynamic": false
+		},
+		"target": "Lambda"
+	}, {
+		"id": "589cf202-0ddf-48f2-ba12-032326414175",
+		"type": "SetVoice",
+		"branches": [{
+			"condition": "Success",
+			"transition": "5f4d3b1b-b5ee-4955-bafb-a3404c36226c"
+		}],
+		"parameters": [{
+			"name": "GlobalVoice",
+			"value": "Joanna"
+		}],
+		"metadata": {
+			"position": {
+				"x": 992,
+				"y": 693
+			}
+		}
+	}, {
+		"id": "970d66a6-a61e-4046-b744-f2d99e53683d",
+		"type": "InvokeExternalResource",
+		"branches": [{
+			"condition": "Success",
+			"transition": "160baf9d-edd2-4502-a1a9-c8ddb1669148"
+		}, {
+			"condition": "Error",
+			"transition": "c393bc76-d196-455a-bfc0-17b155a361ce"
+		}],
+		"parameters": [{
+			"name": "FunctionArn",
+			"value": "arn:aws:lambda:ap-northeast-1:210846229201:function:kakaotemplatemessage",
+			"namespace": null
+		}, {
+			"name": "TimeLimit",
+			"value": "3"
+		}],
+		"metadata": {
+			"position": {
+				"x": 1065,
+				"y": 449
+			},
+			"dynamicMetadata": {},
+			"useDynamic": false
+		},
+		"target": "Lambda"
+	}, {
+		"id": "c12182d8-9ab2-44b3-ac67-7759398d6913",
+		"type": "InvokeExternalResource",
+		"branches": [{
+			"condition": "Success",
+			"transition": "160baf9d-edd2-4502-a1a9-c8ddb1669148"
+		}, {
+			"condition": "Error",
+			"transition": "c393bc76-d196-455a-bfc0-17b155a361ce"
+		}],
+		"parameters": [{
+			"name": "FunctionArn",
+			"value": "arn:aws:lambda:ap-northeast-1:210846229201:function:kakaotemplatemessage2",
+			"namespace": null
+		}, {
+			"name": "TimeLimit",
+			"value": "3"
+		}],
+		"metadata": {
+			"position": {
+				"x": 1453,
+				"y": 909
+			},
+			"dynamicMetadata": {},
+			"useDynamic": false
+		},
+		"target": "Lambda"
+	}, {
+		"id": "01b72514-388b-4559-9531-ccf16ff085bb",
+		"type": "PlayPrompt",
+		"branches": [{
+			"condition": "Success",
+			"transition": "36f3aeac-319d-4508-b3ed-4815fe814bda"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "상담을 종료합니다. 이용해주셔서 감사합니다.",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}],
+		"metadata": {
+			"position": {
+				"x": 954,
+				"y": 1019
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "7cf1ffef-d92e-4352-bf31-7b45aaaa0e9d",
+		"type": "SetAttributes",
+		"branches": [{
+			"condition": "Success",
+			"transition": "f73791b9-647b-470e-a492-7000ac38c015"
+		}, {
+			"condition": "Error",
+			"transition": "c393bc76-d196-455a-bfc0-17b155a361ce"
+		}],
+		"parameters": [{
+			"name": "Attribute",
+			"value": "Customer Number",
+			"key": "PhoneNo",
+			"namespace": "System"
+		}, {
+			"name": "Attribute",
+			"value": "Agent.UserName",
+			"key": "Agent",
+			"namespace": "System"
+		}, {
+			"name": "Attribute",
+			"value": "contactId",
+			"key": "contactId",
+			"namespace": "External"
+		}, {
+			"name": "Attribute",
+			"value": "customerData",
+			"key": "customerData",
+			"namespace": "External"
+		}],
+		"metadata": {
+			"position": {
+				"x": 989,
+				"y": 7
+			}
+		}
+	}, {
+		"id": "36f3aeac-319d-4508-b3ed-4815fe814bda",
+		"type": "Disconnect",
+		"branches": [],
+		"parameters": [],
+		"metadata": {
+			"position": {
+				"x": 1388,
+				"y": 1132
+			}
+		}
+	}, {
+		"id": "f73791b9-647b-470e-a492-7000ac38c015",
+		"type": "PlayPrompt",
+		"branches": [{
+			"condition": "Success",
+			"transition": "f005477c-d826-4f6c-a67d-571392a8a39c"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "안녕하세요 고객님? Amazon Connect 콜센터입니다. 샘플을 통해 손쉽게 음성과 채팅 기반의 콜센터를 구축한 예제를 경험해보실 수 있습니다. 본 샘플은 메신저 연동과 데이터 분석을 포함합니다.",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}],
+		"metadata": {
+			"position": {
+				"x": 1253,
+				"y": 10
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "5766da31-6742-41bb-95d6-4d60768ffbf7",
+		"type": "Loop",
+		"branches": [{
+			"condition": "Looping",
+			"transition": "f005477c-d826-4f6c-a67d-571392a8a39c"
+		}, {
+			"condition": "Complete",
+			"transition": "01b72514-388b-4559-9531-ccf16ff085bb"
+		}],
+		"parameters": [{
+			"name": "LoopCount",
+			"value": "10"
+		}],
+		"metadata": {
+			"position": {
+				"x": 655,
+				"y": 613
+			},
+			"useDynamic": false
+		}
+	}, {
+		"id": "8e9657b2-9f37-4928-9e33-fdf254121d42",
+		"type": "InvokeExternalResource",
+		"branches": [{
+			"condition": "Success",
+			"transition": "f005477c-d826-4f6c-a67d-571392a8a39c"
+		}, {
+			"condition": "Error",
+			"transition": "7cce0362-442d-4db2-afad-7c385b7eecc3"
+		}],
+		"parameters": [{
+			"name": "FunctionArn",
+			"value": "arn:aws:lambda:ap-northeast-1:210846229201:function:DemoGoConnectLambda",
+			"namespace": null
+		}, {
+			"name": "TimeLimit",
+			"value": "3"
+		}],
+		"metadata": {
+			"position": {
+				"x": 421,
+				"y": 180
+			},
+			"dynamicMetadata": {},
+			"useDynamic": false
+		},
+		"target": "Lambda"
+	}, {
+		"id": "f005477c-d826-4f6c-a67d-571392a8a39c",
+		"type": "GetUserInput",
+		"branches": [{
+			"condition": "Evaluate",
+			"conditionType": "Equals",
+			"conditionValue": "1",
+			"transition": "7cf1ffef-d92e-4352-bf31-7b45aaaa0e9d"
+		}, {
+			"condition": "Evaluate",
+			"conditionType": "Equals",
+			"conditionValue": "2",
+			"transition": "efe6064d-5427-4d40-a517-b8d4ff2004d9"
+		}, {
+			"condition": "Evaluate",
+			"conditionType": "Equals",
+			"conditionValue": "3",
+			"transition": "589cf202-0ddf-48f2-ba12-032326414175"
+		}, {
+			"condition": "Evaluate",
+			"conditionType": "Equals",
+			"conditionValue": "4",
+			"transition": "970d66a6-a61e-4046-b744-f2d99e53683d"
+		}, {
+			"condition": "Evaluate",
+			"conditionType": "Equals",
+			"conditionValue": "0",
+			"transition": "5766da31-6742-41bb-95d6-4d60768ffbf7"
+		}, {
+			"condition": "Evaluate",
+			"conditionType": "Equals",
+			"conditionValue": "5",
+			"transition": "c12182d8-9ab2-44b3-ac67-7759398d6913"
+		}, {
+			"condition": "Evaluate",
+			"conditionType": "Equals",
+			"conditionValue": "6",
+			"transition": "01b72514-388b-4559-9531-ccf16ff085bb"
+		}, {
+			"condition": "Timeout",
+			"transition": "7cf1ffef-d92e-4352-bf31-7b45aaaa0e9d"
+		}, {
+			"condition": "NoMatch",
+			"transition": "7cf1ffef-d92e-4352-bf31-7b45aaaa0e9d"
+		}, {
+			"condition": "Error",
+			"transition": "36f3aeac-319d-4508-b3ed-4815fe814bda"
+		}],
+		"parameters": [{
+			"name": "Text",
+			"value": "콜센터 소개를 들으시려면 1번을, 상담 내역 조회를 원하시면 2번을, 상담사와 연결을 원하시면 3번을, 메신저를 통해 가이드를 전달받으시려면 4번을, 메신저를 통해 마케팅 정보를 받아보시려면 5번을, 종료하시려면 6번을, 다시 들으시려면 0번을 눌러주세요.",
+			"namespace": null
+		}, {
+			"name": "TextToSpeechType",
+			"value": "text"
+		}, {
+			"name": "Timeout",
+			"value": "5"
+		}, {
+			"name": "MaxDigits",
+			"value": "1"
+		}],
+		"metadata": {
+			"position": {
+				"x": 680,
+				"y": 33
+			},
+			"conditionMetadata": [{
+				"id": "0229af87-733f-4d3c-8b4c-b2d7255b7e00",
+				"value": "1"
+			}, {
+				"id": "d8dd3c6b-3f83-4d61-8369-6900e1b22da9",
+				"value": "2"
+			}, {
+				"id": "5b759023-be74-4f2c-ad70-63850173148e",
+				"value": "3"
+			}, {
+				"id": "134fda15-09e0-47ae-9d5a-5b7a4ac7d84e",
+				"value": "4"
+			}, {
+				"id": "84afd73a-0e0d-4e3e-94da-90a1a5925a62",
+				"value": "0"
+			}, {
+				"id": "1227db5e-0fa3-4f8c-afbb-68707d46562f",
+				"value": "5"
+			}, {
+				"id": "313d9b81-177f-458e-812b-f2b1c6cde909",
+				"value": "6"
+			}],
+			"useDynamic": false
+		},
+		"target": "Digits"
+	}],
+	"version": "1",
+	"type": "contactFlow",
+	"start": "8bbb23ad-296a-4c87-a6b6-c2c0f52b3c6d",
+	"metadata": {
+		"entryPointPosition": {
+			"x": 15,
+			"y": 13
+		},
+		"snapToGrid": false,
+		"name": "DemoGoPrime",
+		"description": null,
+		"type": "contactFlow",
+		"status": "published",
+		"hash": "4eb3b9a2eee73776a1d153d64e1e83963218b16b34407ed20e446e53cf3aff7c"
+	}
+}
